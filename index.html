@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Listing Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="brand">
+      <h1>ShopSmart</h1>
+      <p>Explore top products with search, filters, and quick actions.</p>
+    </div>
+    <div class="toolbar">
+      <div class="search-box">
+        <label for="searchInput" class="sr-only">Search products</label>
+        <input id="searchInput" type="search" placeholder="Search products..." />
+      </div>
+      <div class="controls">
+        <label for="sortSelect">Sort by</label>
+        <select id="sortSelect">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <section class="filters-panel">
+    <div class="filter-group">
+      <h2>Categories</h2>
+      <div class="filter-options">
+        <button class="filter-button active" data-category="all">All</button>
+        <button class="filter-button" data-category="electronics">Electronics</button>
+        <button class="filter-button" data-category="home">Home</button>
+        <button class="filter-button" data-category="fashion">Fashion</button>
+        <button class="filter-button" data-category="fitness">Fitness</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <h2>Price Range</h2>
+      <div class="range-labels">
+        <span>₹0</span>
+        <span>₹2000+</span>
+      </div>
+      <input id="priceRange" type="range" min="0" max="2000" step="50" value="2000" />
+      <p>Showing products under <strong id="priceValue">₹2000</strong></p>
+    </div>
+  </section>
+
+  <section class="cart-panel">
+    <div class="cart-header">
+      <div>
+        <h2>Shopping Cart</h2>
+        <p id="cartCount">0 items selected</p>
+      </div>
+      <div class="cart-total">
+        Total: <strong id="cartTotal">₹0.00</strong>
+      </div>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <p class="empty-state">Your cart is empty. Add products to see the total.</p>
+    </div>
+  </section>
+
+  <main class="product-grid" id="productGrid" aria-live="polite"></main>
+
+  <template id="productCardTemplate">
+    <article class="product-card">
+      <div class="product-image"></div>
+      <div class="product-details">
+        <div class="product-meta">
+          <span class="product-category"></span>
+          <span class="product-rating"></span>
+        </div>
+        <h3 class="product-name"></h3>
+        <p class="product-description"></p>
+        <div class="product-footer">
+          <span class="product-price"></span>
+          <button class="buy-button">Add to Cart</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
